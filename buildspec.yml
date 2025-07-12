@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -9,12 +8,6 @@ phases:
   build:
     commands:
       - echo "Build complete"
-  post_build:
-    commands:
-      - zip -r fastapi-app.zip .
-
 artifacts:
   files:
-    - fastapi-app.zip
-    - appspec.yml
-    - scripts/*
+    - '**/*/'
