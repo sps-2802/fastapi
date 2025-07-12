@@ -6,10 +6,12 @@ from psycopg2.extensions import connection
  
 app = FastAPI(title="CRUD Operation", description="Crud Actions")
 
+#Function root
 @app.post("/")
 async def root():
     return {"message": "FastAPI + PostgreSQL with dependency injection"}
 
+#Function to fetchUser
 @app.post("/v1/fetchUsers", summary="Function to fetch Users",
           description="Function to Fetch Users", tags =["Crud Operations"])
 async def fetchUsers(request:FetchUser):
