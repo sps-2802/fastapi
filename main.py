@@ -1,7 +1,7 @@
 #main.py
 
 from fastapi import FastAPI,Depends
-from app.requestModel import FetchUser
+from requestModel import FetchUser
 from psycopg2.extensions import connection
  
 app = FastAPI(title="CRUD Operation", description="Crud Actions")
