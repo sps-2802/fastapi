@@ -13,19 +13,12 @@ async def root():
 
 @app.post("/v1/fetchUsers", summary="Function to fetch Users",
           description="Function to Fetch Users", tags =["Crud Operations"])
-async def fetchUsers(request:FetchUser,conn:connection=Depends(getConnection)):
+async def fetchUsers(request:FetchUser):
     resultStatus="success"
     message=""
     data={}
     try:
-        username=request.username.strip()
-        cur = conn.cursor()
-        fetchUsersSql = "SELECT * FROM users"
-        if username:
-            fetchUsersSql += f" where name='{username}'"
-        cur.execute(fetchUsersSql)
-        fetchUsersResult = cur.fetchmany()
-        data=fetchUsersResult
+        data = f"Hi {request.username}"
         return {"status":resultStatus, "message":message, "data":data}
         
     except Exception as e:
